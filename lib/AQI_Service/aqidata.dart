@@ -7,7 +7,7 @@ class AQIService {
   }) async {
     try {
       final String apikey = 'your api key';
-      var response = await Dio().get('your api key ');
+      var response = await Dio().get('http://api.openweathermap.org/data/2.5/air_pollution?lat=$latitude&lon=$longitude&appid=$apikey');
 
       final data = response.data['list'][0];
       return {'aqi': data['main']['aqi'], 'components': data['components']};
